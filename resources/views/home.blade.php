@@ -1,1 +1,7 @@
-<h1>diuahudhuea</h1>
+@extends('_partials.basic')
+
+@section('titulo', 'Home')
+
+@section('conteudo')
+    <h1>Home</h1>
+@endsection
