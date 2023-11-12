@@ -9,11 +9,11 @@
     <p style="color: red;">{{ session('error') }}</p>
 @endif
 
-<form action="{{ route('ticket.store') }}" method="post">
+<form action="{{ route('cadastrar') }}" method="post">
     @csrf
 
-    <label for="nome_cliente">Nome do Cliente:</label>
-    <input type="text" name="nome_cliente" value="{{ old('nome_cliente') }}" required>
+    <label for="nome">Nome do Cliente:</label>
+    <input type="text" name="nome" value="{{ old('nome') }}" required>
     <br>
 
     <label for="email">E-mail:</label>
@@ -28,8 +28,8 @@
     <input type="text" name="titulo_ticket" value="{{ old('titulo_ticket') }}" required>
     <br>
 
-    <label for="conteudo_ticket">Conteúdo do Ticket:</label>
-    <textarea name="conteudo_ticket" rows="4" required>{{ old('conteudo_ticket') }}</textarea>
+    <label for="conteudo">Conteúdo do Ticket:</label>
+    <textarea name="conteudo" rows="4" required>{{ old('conteudo') }}</textarea>
     <br>
 
     <button type="submit">Cadastrar</button>

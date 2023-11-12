@@ -15,3 +15,4 @@ use App\Http\Controllers\PageController;
 
 Route::get('/', [PageController::class, 'index'])->name('home');
 Route::get('ticket', [PageController::class, 'ticket'])->name('ticket');
+Route::post('ticket', [PageController::class, 'cadastrar'])->name('cadastrar');

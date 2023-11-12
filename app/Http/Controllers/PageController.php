@@ -15,4 +15,21 @@ class PageController extends Controller
     {
         return view('ticket');
     }
+
+    public function cadastrar(Request $request)
+    {
+        $request->validate([
+            'nome' => 'required',
+            'email' => 'required|email',
+            'numero_pedido' => 'required|numeric',
+            'titulo_ticket' => 'required',
+            'conteudo' => 'required'
+        ]);
+
+        $ticketData = $request->all();
+         Ticket::create($ticketData);
+
+        return view('ticket', $ticketData);
+    }
+
 }
