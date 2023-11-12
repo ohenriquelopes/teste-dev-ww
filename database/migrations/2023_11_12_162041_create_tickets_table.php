@@ -15,10 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('nome');
             $table->string('email');
+            $table->unsignedBigInteger('pedido_id');
             $table->integer('numero_pedido');
             $table->string('titulo_ticket');
             $table->text('conteudo');
             $table->timestamps();
+
+            $table->foreign('pedido_id')->references('id')->on('pedidos');
         });
     }
 
