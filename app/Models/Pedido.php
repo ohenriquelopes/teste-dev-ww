@@ -12,12 +12,18 @@ class Pedido extends Model
     // Relacionamento com clientes
     public function cliente()
     {
-        return $this->belongsTo(Cliente::class);
+        return $this->belongsTo(Cliente::class, 'cliente_id');
     }
 
     // Relacionamento com tickets
     public function tickets()
     {
-        return $this->hasMany(Ticket::class);
+        return $this->hasMany(Ticket::class, 'pedido_id');
     }
+// Pedido.php
+//    public function tickets()
+//    {
+//        return $this->hasMany(Ticket::class);
+//    }
+
 }

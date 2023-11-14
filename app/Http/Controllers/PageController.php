@@ -19,10 +19,8 @@ class PageController extends Controller
         return view('ticket');
     }
 
-
     public function cadastrar(Request $request)
     {
-//        dd($request->all());
         $request->validate([
             'nome' => 'required',
             'email' => 'required|email',
@@ -30,34 +28,34 @@ class PageController extends Controller
             'titulo_ticket' => 'required',
             'conteudo' => 'required'
         ]);
-//        dd('Método cadastrar está sendo chamado.');
 
         // Criar um novo cliente
         $cliente = Cliente::create([
             'nome' => $request->input('nome'),
             'email' => $request->input('email')
-
         ]);
 
-        // Criar um novo pedido
+        // Criar um novo pedido associado ao cliente
         $pedido = Pedido::create([
             'numero_pedido' => $request->input('numero_pedido'),
         ]);
 
-        // Criar um novo ticket associado ao cliente e ao pedido
+        // Criar um novo ticket
         $ticket = new Ticket([
             'titulo_ticket' => $request->input('titulo_ticket'),
             'conteudo' => $request->input('conteudo')
         ]);
 
-
         // Associar o ticket ao cliente e ao pedido
+        $cliente->tickets()->save($ticket);
         $pedido->tickets()->save($ticket);
-//        $cliente->tickets()->save($ticket);
-//        $ticket->save();
 
         // Redirecionar para a página 'ticket' com uma mensagem de sucesso
         return redirect()->route('ticket')->with('success', 'Ticket cadastrado com sucesso!');
     }
+
+
+
+
 
 }

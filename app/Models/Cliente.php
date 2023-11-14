@@ -12,6 +12,10 @@ class Cliente extends Model
     // Relacionamento com pedidos
     public function pedidos()
     {
-        return $this->hasMany(Pedido::class);
+        return $this->hasMany(Pedido::class, 'cliente_id');
+    }
+    public function tickets()
+    {
+        return $this->hasMany(Ticket::class);
     }
 }
