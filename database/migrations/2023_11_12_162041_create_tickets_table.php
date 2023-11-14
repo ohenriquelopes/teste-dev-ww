@@ -16,9 +16,12 @@ return new class extends Migration
             $table->string('nome');
             $table->string('email');
             $table->integer('numero_pedido');
+            $table->unsignedBigInteger('fk_pedido_id');
             $table->string('titulo_ticket');
             $table->text('conteudo');
             $table->timestamps();
+            $table->softDeletes();
+            $table->foreign('fk_pedido_id')->references('id')->on('pedidos');
 
 //            $table->foreign('id')->references('id')->on('pedidos');
         });
