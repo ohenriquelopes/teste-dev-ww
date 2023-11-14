@@ -20,7 +20,7 @@ return new class extends Migration
             $table->text('conteudo');
             $table->timestamps();
 
-            $table->foreign('id')->references('id')->on('pedidos');
+//            $table->foreign('id')->references('id')->on('pedidos');
         });
     }
 

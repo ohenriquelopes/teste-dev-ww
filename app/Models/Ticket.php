@@ -17,8 +17,8 @@ class Ticket extends Model
     }
 
     // Relacionamento com clientes através do pedido
-    public function cliente()
-    {
-        return $this->belongsTo(Cliente::class, 'cliente_id', 'id');
-    }
+//    public function cliente()
+//    {
+//        return $this->belongsTo(Cliente::class);
+//    }
 }
