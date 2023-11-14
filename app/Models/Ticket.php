@@ -4,14 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Ticket extends Model
 {
+    protected $table = 'tickets';
     protected $fillable = ['nome', 'email', 'numero_pedido', 'titulo_ticket', 'conteudo'];
 
-    // Relacionamento com pedidos
-    public function pedido()
-    {
-        return $this->belongsTo(Pedido::class, 'pedido_id');
-    }
+
 }
