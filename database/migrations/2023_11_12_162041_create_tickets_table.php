@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('nome');
             $table->string('email');
-            $table->integer('numero_pedido');
             $table->unsignedBigInteger('fk_pedido_id');
             $table->string('titulo_ticket');
             $table->text('conteudo');

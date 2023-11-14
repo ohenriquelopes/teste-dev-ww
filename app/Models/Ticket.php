@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Ticket extends Model
 {
     protected $table = 'tickets';
-    protected $fillable = ['nome', 'email', 'numero_pedido', 'titulo_ticket', 'conteudo'];
+    protected $fillable = ['nome', 'email', 'titulo_ticket', 'conteudo', 'fk_pedido_id'];
 
 
 }

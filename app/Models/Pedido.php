@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Pedido extends Model
 {
     protected $table = 'pedidos';
-    protected $fillable = ['numero_pedido'];
+    protected $fillable = ['cliente_id'];
 
     // Relacionamento com tickets
     public function tickets()
