@@ -7,5 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cliente extends Model
 {
-    use HasFactory;
+    protected $fillable = ['nome', 'email'];
+
+    // Relacionamento com pedidos
+    public function pedidos()
+    {
+        return $this->hasMany(Pedido::class);
+    }
 }
