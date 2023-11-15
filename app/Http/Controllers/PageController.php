@@ -19,17 +19,49 @@ class PageController extends Controller
         return view('ticket');
     }
 
-    public function relatorio()
+    public function show($id)
     {
+        $ticket = Ticket::with('pedido')->find($id);
 
-//        $teste = Ticket::with('id')->get();
-//        return view('relatorio', compact('teste'));
+        return view('show', compact('ticket'));
+    }
 
-//        $tickets = Ticket::with('pedido')->get();
-        $tickets = Ticket::with('pedido')->paginate(5);
+
+//    public function relatorio()
+//    {
+//
+//        $tickets = Ticket::with('pedido')->paginate(5);
+//
+//        return view('relatorio', compact('tickets'));
+//    }
+
+    public function relatorio(Request $request)
+    {
+        $query = Ticket::with('pedido');
+//        echo '<pre>';
+//        print_r();
+//        echo '</pre>';
+//        exit;
+
+        $filtros = $request->all();
+
+        // Remove campos vazios ou nulos
+        $filtros = array_filter($filtros, function ($valor) {
+            return !empty($valor);
+        });
+
+        foreach ($filtros as $campo => $valor) {
+            $query->where($campo, $valor);
+        }
+
+
+//        dd($query->toSql(), $query->getBindings());
+
+        $tickets = $query->paginate(5);
 
         return view('relatorio', compact('tickets'));
     }
+
 
     public function cadastrar(Request $request)
     {
