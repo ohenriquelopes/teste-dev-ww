@@ -19,6 +19,17 @@ class PageController extends Controller
         return view('ticket');
     }
 
+    public function relatorio()
+    {
+
+//        $teste = Ticket::with('id')->get();
+//        return view('relatorio', compact('teste'));
+
+        $tickets = Ticket::with('pedido')->get();
+
+        return view('relatorio', compact('tickets'));
+    }
+
     public function cadastrar(Request $request)
     {
 
