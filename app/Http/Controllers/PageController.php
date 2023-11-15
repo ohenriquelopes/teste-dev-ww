@@ -27,40 +27,24 @@ class PageController extends Controller
     }
 
 
-//    public function relatorio()
-//    {
-//
-//        $tickets = Ticket::with('pedido')->paginate(5);
-//
-//        return view('relatorio', compact('tickets'));
-//    }
-
     public function relatorio(Request $request)
     {
         $query = Ticket::with('pedido');
-//        echo '<pre>';
-//        print_r();
-//        echo '</pre>';
-//        exit;
 
-        $filtros = $request->all();
-
-        // Remove campos vazios ou nulos
-        $filtros = array_filter($filtros, function ($valor) {
-            return !empty($valor);
+        $query->when($request->filled('fk_pedido_id'), function ($query) use ($request) {
+            $query->where('fk_pedido_id', $request->input('fk_pedido_id'));
         });
 
-        foreach ($filtros as $campo => $valor) {
-            $query->where($campo, $valor);
-        }
-
-
-//        dd($query->toSql(), $query->getBindings());
+        $query->when($request->filled('email'), function ($query) use ($request) {
+            $query->where('email', $request->input('email'));
+        });
 
         $tickets = $query->paginate(5);
 
         return view('relatorio', compact('tickets'));
     }
+
+
 
 
     public function cadastrar(Request $request)

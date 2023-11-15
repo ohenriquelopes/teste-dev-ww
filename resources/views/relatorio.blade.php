@@ -39,4 +39,5 @@
 
     {{ $tickets->links() }}
 
+
 @endsection
