@@ -35,11 +35,11 @@ Desenvolver uma ferramenta simples de cadastro de tickets para o setor de atendi
 
 - Criar uma tela de relatórios de tickets, onde:
     - Exista um filtro por E-mail e Número do Pedido;
-    - Exista paginação de 5 tickets por página;
-    - Campos que devem ser exibidos na tela:
+    - Exista paginação de 5 tickets por página; OK
+    - Campos que devem ser exibidos na tela: OK
         - Numero do ticket;
         - Número do pedido;
         - Título do Pedido;
         - E-mail do cliente;
         - Data de criação do ticket;
-- Criar tela de visualização de detalhe do ticket com todos os campos da tabela de tickets
+- Criar tela de visualização de detalhe do ticket com todos os campos da tabela de tickets OK
