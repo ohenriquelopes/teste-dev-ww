@@ -13,15 +13,18 @@
 {{--        exit;--}}
 {{--      @endphp--}}
 
+
+
+
     @foreach ($tickets as $ticket)
-        <p>ID: {{ $ticket->id }}</p>
-        <p>Nome: {{ $ticket->nome }}</p>
-        <p>Email: {{ $ticket->email }}</p>
-        <p>Pedido ID: {{ $ticket->fk_pedido_id }}</p>
-        <p>Título do Ticket: {{ $ticket->titulo_ticket }}</p>
-        <p>Conteúdo: {{ $ticket->conteudo }}</p>
+        <p>Numero_ticket: {{ $ticket->id }}</p>
+        <p>Numero_pedido: {{ $ticket->fk_pedido_id }}</p>
+        <p>Titulo_pedido: {{ $ticket->titulo_ticket }}</p>
+        <p>Email_cliente: {{ $ticket->email }}</p>
+        <p>Data: {{ $ticket->created_at }}</p>
         <hr>
     @endforeach
 
+    {{ $tickets->links() }}
 
 @endsection

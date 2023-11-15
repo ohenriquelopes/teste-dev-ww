@@ -25,7 +25,8 @@ class PageController extends Controller
 //        $teste = Ticket::with('id')->get();
 //        return view('relatorio', compact('teste'));
 
-        $tickets = Ticket::with('pedido')->get();
+//        $tickets = Ticket::with('pedido')->get();
+        $tickets = Ticket::with('pedido')->paginate(5);
 
         return view('relatorio', compact('tickets'));
     }
